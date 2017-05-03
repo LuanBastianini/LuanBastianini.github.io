@@ -1,0 +1,19 @@
+html,body{
+    padding: 0;
+    margin: 0;
+}
+div{
+    width: 100%;
+    height: 100vh;
+}
+table{
+    margin: auto auto;
+}
+table tr td{
+    border: 1px solid black;
+    width: 2px;
+    height: 2px;
+}
+.vida{
+    background-color: black;
+}
