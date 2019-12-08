@@ -1,0 +1,108 @@
+html, body{
+    padding: 0;
+    margin: 0;
+    background-color: rgb(20, 19, 19);
+}
+
+body{
+    padding-top: 10%;
+}
+
+.base{
+    background-color: rgb(80, 77, 77);
+    width: 60vh;
+    height: 60vh;
+    border-radius: 50%;
+    margin: 0 auto;
+    border: 3px solid black;
+    position: relative;
+}
+
+.verde{
+    width: 40%;
+    background-color: rgb(29, 132, 0);
+    height: 40%;
+    border-radius: 100% 0 0 0;
+    display: inline-block;
+    margin: 8% 4% 4% 8%;
+    cursor: pointer;
+    pointer-events: none;
+}
+
+.verde_aceso{
+    background-color: rgb(100, 224, 102);
+    box-shadow: 0 30px 20px rgba(135, 255, 23, 0.527) inset;
+}
+
+.vermelho{
+    width: 40%;
+    background-color: rgb(212, 0, 0);
+    height: 40%;
+    border-radius: 0 100% 0 0;
+    display: inline-block;
+    margin: 0 0 4% 0;
+    cursor: pointer;
+    pointer-events: none;
+}
+
+.vermelho_aceso{
+    background-color: rgb(247, 93, 93);
+    box-shadow: -20px 19px 20px rgba(255, 44, 44, 0.459) inset;
+}
+
+.amarelo{
+    width: 40%;
+    background-color: rgb(199, 179, 0);
+    height: 40%;
+    border-radius: 0 0 0 100%;
+    display: inline-block;
+    margin: 0 4% 4% 8%;
+    cursor: pointer;
+    pointer-events: none;
+}
+
+.amarelo_aceso{
+    background-color: rgb(255, 246, 168);
+    box-shadow: 20px -14px 20px 15px rgba(255, 238, 88, 0.664) inset;
+}
+
+.azul{
+    width: 40%;
+    background-color: rgb(0, 22, 218);
+    height: 40%;
+    border-radius: 0 0 100% 0;
+    display: inline-block;
+    margin: 0 0 4% 0;
+    cursor: pointer;
+    pointer-events: none;
+}
+
+.azul_aceso{
+    background-color: rgb(79, 96, 255);
+    box-shadow: -19px -20px 19px 12px rgba(54, 74, 255, 0.555) inset;
+}
+
+.centro{
+    position: absolute;
+    z-index: 500;
+    width: 35%;
+    height: 35%;
+    background: #151313;
+    border-radius: 100%;
+    top: 30%;
+    left: 30%;
+    border: 15px solid rgb(80, 77, 77);
+    color: white;
+    font-family: arial;
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+    cursor: pointer;
+    line-height: 20vh;
+    box-shadow: 1px 1px 14px 0px rgb(66, 65, 65) inset
+}
+
+.centro:active{
+    background: #000000;
+    box-shadow: 1px 1px 14px 8px rgb(64, 64, 64) inset;
+}
