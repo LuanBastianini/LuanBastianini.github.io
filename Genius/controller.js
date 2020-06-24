@@ -6,39 +6,48 @@ function acender(luz){
     document.getElementById(luz).classList.add(luz+'_aceso');
     setTimeout(function(){
         document.getElementById(luz).classList.remove(luz+'_aceso');
-    },1000);
+    },500);
 }
 
-function jogar(e){
-    var cont = nivel;
+function jogar(){
+    var cont = 0;
+    clicks = 0;
+    var e = document.getElementById('centro');
     e.style.pointerEvents = "none";
-    e.innerHTML = nivel;
+    e.innerHTML = ""
+    var n = Math.round(Math.random() * 3)
+    jogadas.push(n);
     var interval = setInterval(function(){
-                        var n = Math.round(Math.random() * 3)
-                        jogadas.push(n);
-                        switch (n) {
-                            case 0:
-                                acender("verde");
-                                break;
-                            case  1:
-                                acender("vermelho");
-                                break;
-                            case 2:
-                                acender("amarelo");
-                                break;
-                            case 3:
-                                acender("azul");
-                                break;
-                        }
-                        cont--;
-                        if(cont == 0)
+                        if(cont <= jogadas.length){
+                            switch (jogadas[cont]) {
+                                case 0:
+                                    acender("verde");
+                                    e.innerHTML = "VERDE";
+                                    break;
+                                case  1:
+                                    acender("vermelho");
+                                    e.innerHTML = "VERMELHO";
+                                    break;
+                                case 2:
+                                    acender("azul");
+                                    e.innerHTML = "AZUL";
+                                    break;
+                                case 3:
+                                    acender("amarelo");
+                                    e.innerHTML = "AMARELO";
+                                    break;
+                            }
+                        }else{
                             clearInterval(interval);
-                    },2000);
+                            e.innerHTML = "ADIVINHE";
+                            document.getElementById('verde').style.pointerEvents = "inherit";
+                            document.getElementById('vermelho').style.pointerEvents = "inherit";
+                            document.getElementById('amarelo').style.pointerEvents = "inherit";
+                            document.getElementById('azul').style.pointerEvents = "inherit";
+                        }
+                        cont++;
+                    },1000);
 
-    document.getElementById('verde').style.pointerEvents = "inherit";
-    document.getElementById('vermelho').style.pointerEvents = "inherit";
-    document.getElementById('amarelo').style.pointerEvents = "inherit";
-    document.getElementById('azul').style.pointerEvents = "inherit";
 };
 
 function adivinhar(luz){
@@ -51,12 +60,13 @@ function adivinhar(luz){
             acender("vermelho");
             break;
         case 2:
-            acender("amarelo");
-            break;
-        case 3:
             acender("azul");
             break;
+        case 3:
+            acender("amarelo");
+            break;
     }
+
     if(jogadas[clicks-1] != luz){
         nivel = 1;
         resetar();
@@ -64,7 +74,12 @@ function adivinhar(luz){
         
     }else if(jogadas.length == clicks){
         nivel++;
-        resetar();
+        document.getElementById('nivel').innerHTML = nivel;
+        document.getElementById('verde').style.pointerEvents = "none";
+        document.getElementById('vermelho').style.pointerEvents = "none";
+        document.getElementById('amarelo').style.pointerEvents = "none";
+        document.getElementById('azul').style.pointerEvents = "none";
+        jogar();
     }
 }
 
