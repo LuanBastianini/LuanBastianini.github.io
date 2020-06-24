@@ -52,6 +52,7 @@ function jogar(){
 
 function adivinhar(luz){
     clicks++;
+    document.getElementById('click').play();
     switch (luz) {
         case 0:
             acender("verde");
@@ -69,6 +70,7 @@ function adivinhar(luz){
 
     if(jogadas[clicks-1] != luz){
         nivel = 1;
+        document.getElementById('nivel').innerHTML = nivel;
         resetar();
         document.getElementById('centro').innerHTML = "PERDEU";
         
